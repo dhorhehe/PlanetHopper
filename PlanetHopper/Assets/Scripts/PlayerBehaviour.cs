@@ -6,38 +6,47 @@ public class PlayerBehaviour : MonoBehaviour
 {
     private Rigidbody2D r;
     private int hp;
+    private bool canJump;
+
     Vector2 startPosition;
 
     // Use this for initialization
     void Start ()
     {
         r = GetComponent<Rigidbody2D>();
+
         hp = 100;
+        canJump = true;
 	}
 	
 	// Update is called once per frame
 	void Update ()
     {
-        jump ();
+        //Methods
+        jump();
+        hpControl();
 
         //Restart
         if(Input.GetKeyDown(KeyCode.R))
         {
             Application.LoadLevel(0);
         }
+
+        //Debug
+        Debug.Log(hp);
 	}
 
     public void jump ()
     {
         Vector2 mouseVectorPosition = Camera.main.ScreenToViewportPoint(new Vector2(Input.mousePosition.x, Input.mousePosition.y));
+
         
-        // Force we want to go with
-        if (Input.GetKeyDown(KeyCode.Mouse0))
+        if (Input.GetKeyDown(KeyCode.Mouse0) && canJump)
         {
             startPosition = mouseVectorPosition;
         }
 
-        if (Input.GetKeyUp(KeyCode.Mouse0))
+        if (Input.GetKeyUp(KeyCode.Mouse0) && canJump)
         {
             Vector2 heading = startPosition - mouseVectorPosition;
             float dist = Vector2.Distance(startPosition, mouseVectorPosition);
@@ -46,14 +55,14 @@ public class PlayerBehaviour : MonoBehaviour
             {
                 Vector2 direction = heading / dist;
                 r.AddForce(direction * dist * 1000);
-                Debug.Log("Slow shot");
+                
             }
             else if (dist > 0.45)
             {
                 Vector2 direction = heading / dist;
                 r.AddForce(direction * 0.45f * 1000);
-                Debug.Log("Max shot");
             }
+            canJump = false;
         }
     }
 
@@ -65,6 +74,9 @@ public class PlayerBehaviour : MonoBehaviour
         }
     }
 
+    /*
+    Controls my game
+    */
     public void startGame(bool start)
     {
         int gameControl;
@@ -79,5 +91,13 @@ public class PlayerBehaviour : MonoBehaviour
         }
 
         Time.timeScale = gameControl;
+    }
+
+    void OnCollisionEnter2D(Collision2D other)
+    {
+        if (other.gameObject.tag == "Planet")
+        {
+            hp -= 10;
+        }
     }
 }
