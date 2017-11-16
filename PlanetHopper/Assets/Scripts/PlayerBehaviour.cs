@@ -7,6 +7,8 @@ public class PlayerBehaviour : MonoBehaviour
     private Rigidbody2D r;
     private int hp;
     private bool canJump;
+    private GameObject gameController;
+
 
     Vector2 startPosition;
 
@@ -15,9 +17,14 @@ public class PlayerBehaviour : MonoBehaviour
     {
         r = GetComponent<Rigidbody2D>();
 
+        g = GetComponent<GameBehaviour>();
+
         hp = 100;
         canJump = true;
-	}
+
+        //Methods
+        gameController.GetComponent<GameBehaviour>().startGame(true);
+    }
 	
 	// Update is called once per frame
 	void Update ()
@@ -25,12 +32,6 @@ public class PlayerBehaviour : MonoBehaviour
         //Methods
         jump();
         hpControl();
-
-        //Restart
-        if(Input.GetKeyDown(KeyCode.R))
-        {
-            Application.LoadLevel(0);
-        }
 
         //Debug
         Debug.Log(hp);
@@ -70,27 +71,8 @@ public class PlayerBehaviour : MonoBehaviour
     {
         if (hp <= 0)
         {
-            startGame(false);
+            gameController.GetComponent<GameBehaviour>().startGame(false);
         }
-    }
-
-    /*
-    Controls my game
-    */
-    public void startGame(bool start)
-    {
-        int gameControl;
-
-        if (start)
-        {
-            gameControl = 1;
-        }
-        else
-        {
-            gameControl = 0;
-        }
-
-        Time.timeScale = gameControl;
     }
 
     void OnCollisionEnter2D(Collision2D other)
@@ -105,7 +87,7 @@ public class PlayerBehaviour : MonoBehaviour
     {
         if (other.gameObject.name == "Portal")
         {
-            startGame(false);
+            gameController.GetComponent<GameBehaviour>().startGame(false);
         }
     }
 }
