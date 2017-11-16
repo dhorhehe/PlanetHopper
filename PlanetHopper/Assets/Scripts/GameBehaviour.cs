@@ -10,23 +10,25 @@ public class GameBehaviour : MonoBehaviour
 	// Use this for initialization
 	void Start ()
     {
-        Debug.Log(coins);
+        coins = getCoins();
 	}
 	
 	// Update is called once per frame
 	void Update ()
     {
 		restartGame();
-	}
+        Debug.Log(coins);
+    }
 
-    public int getCoints()
+    public int getCoins()
     {
         return PlayerPrefs.GetInt("coins");
     }
 
-    public void addCoins()
+    public void addCoins(int value)
     {
-        PlayerPrefs.SetInt("coins", coins++);
+        coins = getCoins();
+        PlayerPrefs.SetInt("coins", coins += value);
     }
 
     public void startGame(bool start)

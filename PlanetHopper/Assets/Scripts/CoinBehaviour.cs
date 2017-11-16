@@ -24,7 +24,7 @@ public class CoinBehaviour : MonoBehaviour
         {
 
             Destroy(gameObject);
-            g.GetComponent<GameBehaviour>().addCoins();
+            g.GetComponent<GameBehaviour>().addCoins(1);
         }
     }
 }

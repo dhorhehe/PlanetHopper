@@ -17,7 +17,7 @@ public class PlayerBehaviour : MonoBehaviour
     {
         r = GetComponent<Rigidbody2D>();
 
-        g = GetComponent<GameBehaviour>();
+        gameController = GameObject.Find("GameController");
 
         hp = 100;
         canJump = true;
@@ -33,8 +33,6 @@ public class PlayerBehaviour : MonoBehaviour
         jump();
         hpControl();
 
-        //Debug
-        Debug.Log(hp);
 	}
 
     public void jump ()
