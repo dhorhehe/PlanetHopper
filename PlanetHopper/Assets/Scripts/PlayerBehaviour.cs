@@ -8,6 +8,7 @@ public class PlayerBehaviour : MonoBehaviour
     private int hp;
     private bool canJump;
     private GameObject gameController;
+    private GameObject pointer;
 
 
     Vector2 startPosition;
@@ -18,6 +19,7 @@ public class PlayerBehaviour : MonoBehaviour
         r = GetComponent<Rigidbody2D>();
 
         gameController = GameObject.Find("GameController");
+        pointer = GameObject.Find("Pointer");
 
         hp = 100;
         canJump = true;
@@ -39,7 +41,7 @@ public class PlayerBehaviour : MonoBehaviour
     {
         Vector2 mouseVectorPosition = Camera.main.ScreenToViewportPoint(new Vector2(Input.mousePosition.x, Input.mousePosition.y));
 
-        
+
         if (Input.GetKeyDown(KeyCode.Mouse0) && canJump)
         {
             startPosition = mouseVectorPosition;
