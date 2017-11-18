@@ -4,17 +4,20 @@ using UnityEngine;
 
 public class PointerControl : MonoBehaviour
 {
+    private GameObject player;
 
 	// Use this for initialization
 	void Start ()
     {
-		
+        player = GameObject.Find("Player");
+
 	}
 	
 	// Update is called once per frame
 	void Update ()
     {
         pointerRotation();
+        pointerScale();
 	}
 
     public void showPointer(bool show)
@@ -31,14 +34,13 @@ public class PointerControl : MonoBehaviour
 
     public void pointerRotation()
     {
-        Vector3 mousePos = Input.mousePosition;
-        Vector3 objectPos = Camera.main.WorldToScreenPoint(gameObject.transform.position);
+        float angleOfPlayer = player.GetComponent<PlayerBehaviour>().getAngle();
 
-        mousePos.x = mousePos.x - objectPos.x;
-        mousePos.y = mousePos.y - objectPos.y;
+        transform.rotation = Quaternion.Euler(new Vector3(0, 0, angleOfPlayer));
+    }
 
-        float angle = (Mathf.Atan2(mousePos.y, mousePos.x) * Mathf.Rad2Deg)-90;
-
-        transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle));
+    public void pointerScale()
+    {
+        gameObject.transform.localScale = new Vector2(player.GetComponent<PlayerBehaviour>().getForce()*10, player.GetComponent<PlayerBehaviour>().getForce()*10);
     }
 }

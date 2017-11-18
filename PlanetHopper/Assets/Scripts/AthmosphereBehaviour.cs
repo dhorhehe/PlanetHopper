@@ -5,15 +5,11 @@ using UnityEngine;
 public class AthmosphereBehaviour : MonoBehaviour
 {
     private PointEffector2D p;
-    private CircleCollider2D c;
-    private Color orange;
 
     // Use this for initialization
     void Start()
     {
         p = gameObject.GetComponent<PointEffector2D>();
-        c = gameObject.GetComponent<CircleCollider2D>();
-        orange = new Color(255, 150, 10);
         colorOfAth();
     }
 
