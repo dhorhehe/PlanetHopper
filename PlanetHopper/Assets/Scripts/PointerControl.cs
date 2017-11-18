@@ -10,8 +10,9 @@ public class PointerControl : MonoBehaviour
 	void Start ()
     {
         player = GameObject.Find("Player");
+        gameObject.transform.localScale = new Vector2(0, 0);
 
-	}
+    }
 	
 	// Update is called once per frame
 	void Update ()

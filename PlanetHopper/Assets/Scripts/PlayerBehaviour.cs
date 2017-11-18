@@ -23,7 +23,7 @@ public class PlayerBehaviour : MonoBehaviour
         gameController = GameObject.Find("GameController");
         pointer = GameObject.Find("Pointer");
 
-        hp = 100;
+        hp = 10;
         canJump = true;
 
         //Methods
@@ -109,7 +109,7 @@ public class PlayerBehaviour : MonoBehaviour
     {
         if (other.gameObject.tag == "Planet")
         {
-            hp -= 10;
+            hp -= 1;
         }
     }
 

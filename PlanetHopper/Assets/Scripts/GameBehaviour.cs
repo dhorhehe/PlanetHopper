@@ -6,18 +6,23 @@ using UnityEngine.SceneManagement;
 public class GameBehaviour : MonoBehaviour
 {
     private int coins;
+    private int spawnBehaviour;
+    private GameObject meteor;
 
 	// Use this for initialization
 	void Start ()
     {
         coins = getCoins();
+        meteor = GameObject.Find("Meteor");
+
+        meteor.SetActive(false);
+        spawnMeteors();
 	}
 	
 	// Update is called once per frame
 	void Update ()
     {
 		restartGame();
-        Debug.Log(coins);
     }
 
     public int getCoins()
@@ -63,6 +68,33 @@ public class GameBehaviour : MonoBehaviour
     
     public void spawnMeteors()
     {
-        Random.Range(0, 4);
+        spawnBehaviour = Random.Range(0, 4);
+
+        switch (spawnBehaviour)
+        {
+            case 0:
+                meteor.SetActive(true);
+                meteor.transform.position = new Vector2(Random.Range(-8,8), 15);
+                meteor.GetComponent<MeteorBehaviour>().movement();
+                break;
+            case 1:
+                meteor.SetActive(true);
+                meteor.transform.position = new Vector2(Random.Range(-8, 8), -15);
+                meteor.GetComponent<MeteorBehaviour>().movement();
+                break;
+            case 2:
+                meteor.SetActive(true);
+                meteor.transform.position = new Vector2(-16, Random.Range(-4, 4));
+                meteor.GetComponent<MeteorBehaviour>().movement();
+                break;
+            case 3:
+                meteor.SetActive(true);
+                meteor.transform.position = new Vector2(16, Random.Range(-4, 4));
+                meteor.GetComponent<MeteorBehaviour>().movement();
+                break;
+            default:
+                Debug.Log("Something went wrong");
+                break;
+        }
     }
 }

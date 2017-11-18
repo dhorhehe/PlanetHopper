@@ -10,8 +10,6 @@ public class MeteorBehaviour : MonoBehaviour
     // Use this for initialization
     void Start ()
     {
-        movement();
-
         r = gameObject.GetComponent<Rigidbody2D>();
     }
 	
