@@ -60,4 +60,9 @@ public class GameBehaviour : MonoBehaviour
     {
         PlayerPrefs.Save();
     }
+    
+    public void spawnMeteors()
+    {
+        Random.Range(0, 4);
+    }
 }
