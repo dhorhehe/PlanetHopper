@@ -9,6 +9,7 @@ public class PlayerBehaviour : MonoBehaviour
     private bool canJump;
     private GameObject gameController;
     private GameObject pointer;
+    private float angleOfStart;
 
 
     Vector2 startPosition;
