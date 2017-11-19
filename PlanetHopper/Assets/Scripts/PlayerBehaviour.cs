@@ -97,6 +97,11 @@ public class PlayerBehaviour : MonoBehaviour
         return forceOfPlayer;
     }
 
+    public int getHealth()
+    {
+        return hp;
+    }
+
     public void hpControl()
     {
         if (hp <= 0)
@@ -107,7 +112,7 @@ public class PlayerBehaviour : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D other)
     {
-        if (other.gameObject.tag == "Planet")
+        if (other.gameObject.tag == "Planet" || other.gameObject.tag == "Sorthul" || other.gameObject.name == "Meteor")
         {
             hp -= 1;
         }
