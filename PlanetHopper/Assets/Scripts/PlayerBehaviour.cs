@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerBehaviour : MonoBehaviour
 {
@@ -120,9 +121,12 @@ public class PlayerBehaviour : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
+        int y = SceneManager.GetActiveScene().buildIndex;
+
         if (other.gameObject.name == "Portal")
         {
-            gameController.GetComponent<GameBehaviour>().startGame(false);
+            Debug.Log("XD");
+            SceneManager.LoadScene(y+1);
         }
     }
 }

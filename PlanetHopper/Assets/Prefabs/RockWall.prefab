@@ -20,7 +20,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4518800835112580}
   - component: {fileID: 212771620520257622}
-  - component: {fileID: 60885296961868688}
+  - component: {fileID: 60200462414203082}
   m_Layer: 0
   m_Name: RockWall
   m_TagString: Untagged
@@ -34,14 +34,14 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1305914705968182}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3.23, y: 2.67, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: 0.90717995, w: -0.42074287}
+  m_LocalPosition: {x: -2.61, y: -3.71, z: 0}
   m_LocalScale: {x: 0.4734762, y: 0.4734762, z: 0.4734762}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!60 &60885296961868688
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -130.237}
+--- !u!60 &60200462414203082
 PolygonCollider2D:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -140,13 +140,13 @@ PolygonCollider2D:
       - {x: -0.92499995, y: 0.45999998}
       - {x: -0.935, y: 0.45}
       - {x: -0.935, y: -0.14999999}
-      - {x: -0.945, y: -0.16}
-      - {x: -0.955, y: -0.26999998}
-      - {x: -1.015, y: -0.59}
-      - {x: -1.025, y: -0.65}
-      - {x: -1.025, y: -1.11}
-      - {x: -1.015, y: -1.1899999}
-      - {x: -0.965, y: -1.41}
+      - {x: -0.91784006, y: -0.15992787}
+      - {x: -0.92784, y: -0.2699277}
+      - {x: -0.9335194, y: -0.58978623}
+      - {x: -0.943591, y: -0.6226262}
+      - {x: -0.9298676, y: -1.1369109}
+      - {x: -0.9199033, y: -1.2033293}
+      - {x: -0.9107158, y: -1.3962779}
       - {x: -0.895, y: -1.9}
       - {x: -0.835, y: -2.36}
       - {x: -0.775, y: -2.74}

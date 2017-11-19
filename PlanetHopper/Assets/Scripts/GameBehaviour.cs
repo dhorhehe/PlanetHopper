@@ -57,7 +57,7 @@ public class GameBehaviour : MonoBehaviour
         //Restart
         if (Input.GetKeyDown(KeyCode.R))
         {
-            SceneManager.LoadScene("Game");
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }
     }
 
