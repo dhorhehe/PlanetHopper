@@ -8,7 +8,6 @@ public class PlayerBehaviour : MonoBehaviour
     private Rigidbody2D r;
     private int hp;
     private bool canJump;
-    private bool won;
     private GameObject gameController;
     private GameObject pointer;
     private float angleOfStart;
@@ -27,7 +26,6 @@ public class PlayerBehaviour : MonoBehaviour
 
         hp = 10;
         canJump = true;
-        won = false;
 
         //Methods
         gameController.GetComponent<GameBehaviour>().startGame(true);
@@ -106,11 +104,6 @@ public class PlayerBehaviour : MonoBehaviour
         return hp;
     }
 
-    public bool getWon()
-    {
-        return won;
-    }
-
     public void hpControl()
     {
         if (hp <= 0)
@@ -142,7 +135,6 @@ public class PlayerBehaviour : MonoBehaviour
 
         if (other.gameObject.name == "Portal")
         {
-            won = true;
             SceneManager.LoadScene(y+1);
         }
     }

@@ -24,7 +24,7 @@ public class GameBehaviour : MonoBehaviour
 	// Update is called once per frame
 	void Update ()
     {
-		//restartGame();
+        //restartGame();
         Debug.Log(coins);
     }
 
@@ -36,7 +36,7 @@ public class GameBehaviour : MonoBehaviour
     public void addCoins(int value)
     {
         coins = getCoins();
-        PlayerPrefs.SetInt("coins", coins += value);
+        PlayerPrefs.SetInt("coins", coins);
     }
 
     public void startGame(bool start)
@@ -57,20 +57,17 @@ public class GameBehaviour : MonoBehaviour
 
     public void restartGame()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-
         /*if (Input.GetKey(KeyCode.R))
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }*/
+
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
     public void OnApplicationQuit()
     {
-        if (player.GetComponent<PlayerBehaviour>().getWon() == true)
-        {
             PlayerPrefs.Save();
-        }
     }
     
     public void spawnMeteors()
