@@ -5,12 +5,11 @@ using UnityEngine;
 public class MeteorBehaviour : MonoBehaviour
 {
     private int direction;
-    private Rigidbody2D r;
+
 
     // Use this for initialization
     void Start ()
     {
-        r = gameObject.GetComponent<Rigidbody2D>();
     }
 	
 	// Update is called once per frame

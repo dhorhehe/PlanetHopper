@@ -8,6 +8,7 @@ public class PlayerBehaviour : MonoBehaviour
     private Rigidbody2D r;
     private int hp;
     private bool canJump;
+    private bool won;
     private GameObject gameController;
     private GameObject pointer;
     private float angleOfStart;
@@ -26,6 +27,7 @@ public class PlayerBehaviour : MonoBehaviour
 
         hp = 10;
         canJump = true;
+        won = false;
 
         //Methods
         gameController.GetComponent<GameBehaviour>().startGame(true);
@@ -38,6 +40,7 @@ public class PlayerBehaviour : MonoBehaviour
         //Methods
         jump();
         hpControl();
+        outOfBounds();
     }
 
     public void jump ()
@@ -103,11 +106,25 @@ public class PlayerBehaviour : MonoBehaviour
         return hp;
     }
 
+    public bool getWon()
+    {
+        return won;
+    }
+
     public void hpControl()
     {
         if (hp <= 0)
         {
-            gameController.GetComponent<GameBehaviour>().startGame(false);
+            //Die
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        }
+    }
+
+    public void outOfBounds()
+    {
+        if (transform.position.x > 10 ||transform.position.x < -10 || transform.position.y > 8 || transform.position.y < -8)
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }
     }
 
@@ -125,7 +142,7 @@ public class PlayerBehaviour : MonoBehaviour
 
         if (other.gameObject.name == "Portal")
         {
-            Debug.Log("XD");
+            won = true;
             SceneManager.LoadScene(y+1);
         }
     }

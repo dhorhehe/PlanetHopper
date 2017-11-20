@@ -22,7 +22,6 @@ public class CoinBehaviour : MonoBehaviour
     {
         if (other.name == "Player")
         {
-
             Destroy(gameObject);
             g.GetComponent<GameBehaviour>().addCoins(1);
         }

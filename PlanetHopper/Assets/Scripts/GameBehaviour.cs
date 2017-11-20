@@ -8,12 +8,14 @@ public class GameBehaviour : MonoBehaviour
     private int coins;
     private int spawnBehaviour;
     private GameObject meteor;
+    private GameObject player;
 
 	// Use this for initialization
 	void Start ()
     {
         coins = getCoins();
         meteor = GameObject.Find("Meteor");
+        player = GameObject.Find("Player");
 
         meteor.SetActive(false);
         spawnMeteors();
@@ -22,7 +24,8 @@ public class GameBehaviour : MonoBehaviour
 	// Update is called once per frame
 	void Update ()
     {
-		restartGame();
+		//restartGame();
+        Debug.Log(coins);
     }
 
     public int getCoins()
@@ -54,16 +57,20 @@ public class GameBehaviour : MonoBehaviour
 
     public void restartGame()
     {
-        //Restart
-        if (Input.GetKeyDown(KeyCode.R))
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+
+        /*if (Input.GetKey(KeyCode.R))
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-        }
+        }*/
     }
 
     public void OnApplicationQuit()
     {
-        PlayerPrefs.Save();
+        if (player.GetComponent<PlayerBehaviour>().getWon() == true)
+        {
+            PlayerPrefs.Save();
+        }
     }
     
     public void spawnMeteors()
