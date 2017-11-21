@@ -24,8 +24,12 @@ public class GameBehaviour : MonoBehaviour
 	// Update is called once per frame
 	void Update ()
     {
-        //restartGame();
         Debug.Log(coins);
+
+        if (Input.GetKey(KeyCode.R))
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        }
     }
 
     public int getCoins()
@@ -57,11 +61,6 @@ public class GameBehaviour : MonoBehaviour
 
     public void restartGame()
     {
-        /*if (Input.GetKey(KeyCode.R))
-        {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-        }*/
-
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
