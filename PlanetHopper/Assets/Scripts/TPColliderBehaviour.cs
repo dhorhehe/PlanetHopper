@@ -5,11 +5,14 @@ using UnityEngine;
 public class TPColliderBehaviour : MonoBehaviour
 {
     private GameObject sorthul;
+    private int works;
+    private bool even;
 
 	// Use this for initialization
 	void Start ()
     {
-        sorthul = GameObject.Find("Sorthul");	
+        sorthul = GameObject.Find("Sorthul");
+        works = 0;
 	}
 	
 	// Update is called once per frame
@@ -20,9 +23,16 @@ public class TPColliderBehaviour : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.name == "Player")
+        works++;
+        if (other.name == "Player" && works == 1)
         {
             sorthul.GetComponent<SortHulBehaviour>().teleport();
         }
+
+        if (works == 2)
+        {
+            works = 0;
+        }
+        
     }
 }
