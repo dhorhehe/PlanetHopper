@@ -1120,7 +1120,7 @@ ParticleSystem:
   moveWithTransform: 0
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: 828293430
+  randomSeed: -932421766
   InitialModule:
     serializedVersion: 3
     enabled: 1
@@ -5678,11 +5678,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4433724755682962, guid: 109642a8fd042834ab78202eb0f25a76, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -1.1
+      value: -2.87
       objectReference: {fileID: 0}
     - target: {fileID: 4433724755682962, guid: 109642a8fd042834ab78202eb0f25a76, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -3.94
+      value: 3.59
       objectReference: {fileID: 0}
     - target: {fileID: 4433724755682962, guid: 109642a8fd042834ab78202eb0f25a76, type: 2}
       propertyPath: m_LocalPosition.z
@@ -5708,7 +5708,8 @@ Prefab:
       propertyPath: m_RootOrder
       value: 10
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 114390473868681360, guid: 109642a8fd042834ab78202eb0f25a76, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: 109642a8fd042834ab78202eb0f25a76, type: 2}
   m_IsPrefabParent: 0
 --- !u!1 &1750719356
@@ -6279,11 +6280,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4917957542115114, guid: f85fddb522874054f95c4e5d09278bb9, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 7.81
+      value: -7.01
       objectReference: {fileID: 0}
     - target: {fileID: 4917957542115114, guid: f85fddb522874054f95c4e5d09278bb9, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 3.76
+      value: -3.63
       objectReference: {fileID: 0}
     - target: {fileID: 4917957542115114, guid: f85fddb522874054f95c4e5d09278bb9, type: 2}
       propertyPath: m_LocalPosition.z
@@ -6309,6 +6310,7 @@ Prefab:
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 114376164433741552, guid: f85fddb522874054f95c4e5d09278bb9, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: f85fddb522874054f95c4e5d09278bb9, type: 2}
   m_IsPrefabParent: 0

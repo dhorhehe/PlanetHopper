@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class SortHulBehaviour : MonoBehaviour
 {
-    private float timer;
     private GameObject sorthul2;
     private GameObject player;
 	// Use this for initialization
@@ -22,9 +21,17 @@ public class SortHulBehaviour : MonoBehaviour
 
     public void teleport()
     {
-        timer = 0.5f;
         Vector2 speed = player.GetComponent<Rigidbody2D>().velocity;
         player.transform.position = new Vector2(sorthul2.transform.position.x, sorthul2.transform.position.y);
         player.GetComponent<Rigidbody2D>().velocity = speed;
     }
+
+    public void teleport2()
+    {
+        Vector2 speed = player.GetComponent<Rigidbody2D>().velocity;
+        player.transform.position = new Vector2(transform.position.x, transform.position.y);
+        player.GetComponent<Rigidbody2D>().velocity = speed;
+    }
+
+
 }

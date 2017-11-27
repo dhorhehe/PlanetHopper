@@ -18,21 +18,24 @@ public class TPColliderBehaviour : MonoBehaviour
 	// Update is called once per frame
 	void Update ()
     {
-		
-	}
+        
+    }
 
-    void OnTriggerEnter2D(Collider2D other)
+    /*void OnTriggerEnter2D(Collider2D other)
     {
-        works++;
-        if (other.name == "Player" && works == 1)
-        {
-            sorthul.GetComponent<SortHulBehaviour>().teleport();
-        }
-
         if (works == 2)
         {
             works = 0;
         }
-        
-    }
+
+        if (other.name == "Player" && works == 1 && name == "TeleportCollider")
+        {
+            sorthul.GetComponent<SortHulBehaviour>().teleport();
+        }
+
+        if (other.name == "Player" && works == 1 && name == "TeleportCollider2")
+        {
+            sorthul.GetComponent<SortHulBehaviour>().teleport2();
+        }
+    }*/
 }

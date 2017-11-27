@@ -10,8 +10,10 @@ public class PlayerBehaviour : MonoBehaviour
     private bool canJump;
     private GameObject gameController;
     private GameObject pointer;
+    private GameObject sortHul;
     private float angleOfStart;
     private float forceOfPlayer;
+    private int tpWorks;
 
 
     Vector2 startPosition;
@@ -23,8 +25,10 @@ public class PlayerBehaviour : MonoBehaviour
 
         gameController = GameObject.Find("GameController");
         pointer = GameObject.Find("Pointer");
+        sortHul = GameObject.Find("Sorthul");
 
         hp = 10;
+        tpWorks = 0;
         canJump = true;
 
         //Methods
@@ -135,7 +139,17 @@ public class PlayerBehaviour : MonoBehaviour
 
         if (other.gameObject.name == "Portal")
         {
-            SceneManager.LoadScene(y+1);
+            SceneManager.LoadScene(y + 1);
+        }
+
+        if (tpWorks == 1 && other.gameObject.name == "TeleportCollider2")
+        {
+            sortHul.GetComponent<SortHulBehaviour>().teleport2();
+        }
+
+        if (tpWorks == 1 && other.gameObject.name == "TeleportCollider")
+        {
+            sortHul.GetComponent<SortHulBehaviour>().teleport();
         }
     }
 }
