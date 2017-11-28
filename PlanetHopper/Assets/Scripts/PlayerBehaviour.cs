@@ -13,8 +13,7 @@ public class PlayerBehaviour : MonoBehaviour
     private GameObject sortHul;
     private float angleOfStart;
     private float forceOfPlayer;
-    private int tpWorks;
-
+    private float timer;
 
     Vector2 startPosition;
 
@@ -28,7 +27,6 @@ public class PlayerBehaviour : MonoBehaviour
         sortHul = GameObject.Find("Sorthul");
 
         hp = 10;
-        tpWorks = 0;
         canJump = true;
 
         //Methods
@@ -142,12 +140,12 @@ public class PlayerBehaviour : MonoBehaviour
             SceneManager.LoadScene(y + 1);
         }
 
-        if (tpWorks == 1 && other.gameObject.name == "TeleportCollider2")
+        if (sortHul.GetComponent<SortHulBehaviour>().getWorks() == 0 && other.gameObject.name == "TeleportCollider2")
         {
             sortHul.GetComponent<SortHulBehaviour>().teleport2();
         }
 
-        if (tpWorks == 1 && other.gameObject.name == "TeleportCollider")
+        if (sortHul.GetComponent<SortHulBehaviour>().getWorks() == 0 && other.gameObject.name == "TeleportCollider")
         {
             sortHul.GetComponent<SortHulBehaviour>().teleport();
         }
