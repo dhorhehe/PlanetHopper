@@ -18,6 +18,7 @@ public class MenuBehaviour : MonoBehaviour
 
     public void loadStage(int no)
     {
+        PlayerPrefs.Save();
         SceneManager.LoadScene(no);
     }
 }

@@ -45,7 +45,6 @@ public class SortHulBehaviour : MonoBehaviour
         player.transform.position = new Vector2(sorthul2.transform.position.x, sorthul2.transform.position.y);
         player.GetComponent<Rigidbody2D>().velocity = speed;
         works++;
-        Debug.Log(works);
 
         if (works == 1)
         {

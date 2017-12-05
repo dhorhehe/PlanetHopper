@@ -39,7 +39,7 @@ public class GameBehaviour : MonoBehaviour
 
     public void addCoins(int value)
     {
-        coins = getCoins();
+        coins = getCoins() + 1;
         PlayerPrefs.SetInt("coins", coins);
     }
 
@@ -61,6 +61,7 @@ public class GameBehaviour : MonoBehaviour
 
     public void restartGame()
     {
+        PlayerPrefs.Save();
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
