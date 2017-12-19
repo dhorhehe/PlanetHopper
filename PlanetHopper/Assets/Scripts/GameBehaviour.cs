@@ -97,7 +97,7 @@ public class GameBehaviour : MonoBehaviour
                 meteor.GetComponent<MeteorBehaviour>().movement();
                 break;
             default:
-                Debug.Log("Something went wrong");
+                Debug.Log("Something went wrong - spawnMetors");
                 break;
         }
     }
